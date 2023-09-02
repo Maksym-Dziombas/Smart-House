@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Умный дом - мобильное приложение</title>
+  <link rel="stylesheet" href="fonts/icons/css/icon-fonts.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="overlay"></div>
+  <div class="mobile">
+    <header class="mobile__top">
+      <div class="mobile__top-img">
+        <img class="mobile__top-img-item" src="images/top.svg" alt="Top">
+      </div>
+    </header>
+    <main class="main">
+      <div class="mobile__content content">
+        <div class="content__container">
+          <div class="content__select" id="select">
+            <div class="content__select-selected">
+              <span class="content__select-name">
+                Все комнаты
+              </span>
+              <button class="content__select-icon icon-arrow"></button>
+            </div>
+            <ul class="content__select-list">
+              <li class="content__select-list-item selected" data-room="all">
+                Все комнаты
+              </li>
+              <li class="content__select-list-item" data-room="livingroom">
+                Зал
+              </li>
+              <li class="content__select-list-item" data-room="bedroom">
+                Спальная
+              </li>
+              <li class="content__select-list-item" data-room="kitchen">
+                Кухня
+              </li>
+              <li class="content__select-list-item" data-room="bathroom">
+                Ванная
+              </li>
+              <li class="content__select-list-item" data-room="studio">
+                Кабинет
+              </li>
+              <li class="content__select-list-item" data-room="washingroom">
+                Уборная
+              </li>
+            </ul>
+          </div>
+          <ul class="content__rooms rooms" id="rooms">
+            <li class="rooms__item" data-room="livingroom">
+              <button class="rooms__item-open"></button>
+              <span class="rooms__item-image icon-livingroom"></span>
+              <span class="rooms__item-name">Зал</span>
+            </li>
+            <li class="rooms__item" data-room="bedroom">
+              <button class="rooms__item-open"></button>
+              <span class="rooms__item-image icon-bedroom"></span>
+              <span class="rooms__item-name">Спальная</span>
+            </li>
+            <li class="rooms__item" data-room="kitchen">
+              <button class="rooms__item-open"></button>
+              <span class="rooms__item-image icon-kitchen"></span>
+              <span class="rooms__item-name">Кухня</span>
+            </li>
+            <li class="rooms__item" data-room="bathroom">
+              <button class="rooms__item-open"></button>
+              <span class="rooms__item-image icon-bathroom"></span>
+              <span class="rooms__item-name">Ванная</span>
+            </li>
+            <li class="rooms__item" data-room="studio">
+              <button class="rooms__item-open"></button>
+              <span class="rooms__item-image icon-studio"></span>
+              <span class="rooms__item-name">Кабинет</span>
+            </li>
+            <li class="rooms__item" data-room="washingroom">
+              <button class="rooms__item-open"></button>
+              <span class="rooms__item-image icon-washingroom"></span>
+              <span class="rooms__item-name">Уборная</span>
+            </li>
+          </ul>
+          <div class="settings" id="settings">
+            <ul class="settings__tabs" id="settings-tabs">
+              <li class="settings__type" data-type="temperature">
+                <button class="settings__type-open"></button>
+                <span class="settings__type-ico icon-temperature"></span>
+                <span class="settings__type-name">Температура</span>
+              </li>
+              <li class="settings__type" data-type="lights">
+                <button class="settings__type-open"></button>
+                <span class="settings__type-ico icon-lights"></span>
+                <span class="settings__type-name">Свет</span>
+              </li>
+              <li class="settings__type" data-type="humidty">
+                <button class="settings__type-open"></button>
+                <span class="settings__type-ico icon-humidity"></span>
+                <span class="settings__type-name">Влажность</span>
+              </li>
+            </ul>
+            <ul class="settings__screens" id="settings-screens">
+              <li class="settings__screen" data-type="temperature">
+                <span class="settings__screen-title">Температура</span>
+                <div class="settings__screen-temperature" id="temperature-button">
+                  <svg class="dots-box" viewBox="0 0 104 104">
+                    <circle class="dots" r="50" cx="50%" cy="50%"></circle>
+                    <circle class="line" r="43" cx="50%" cy="50%"></circle>
+                    <circle class="line-active" id="line-active" r="43" cx="50%" cy="50%"></circle>
+                    <circle class="round" id="round" r="43" cx="50%" cy="50%"></circle>
+                    <circle class="separate-lines" r="43" cx="50%" cy="50%"></circle>
+                    <circle class="separate-dots" r="50" cx="50%" cy="50%"></circle>
+                  </svg>
+                  <div class="settings__temperature-info">
+                    <span id="temperature-quantity">0</span>
+                    <span>C</span>
+                  </div>
+                </div>
+                <div class="settings__power-wrapper">
+                  <button class="settings__power" id="power-temperature">
+                    <span class="settings__power-ico icon-power"></span>
+                  </button>
+                  <span class="power__label">Включено</span>
+                </div>
+              </li>
+              <li class="settings__screen" data-type="lights">
+                <span class="settings__screen-title">Интенсивность</span>
+                <span class="settings__screen-sun-ico icon-sun"></span>
+                <div class="slider" id="lights-slider" data-type="lights">
+                  <div class="slider__progress">
+                    <span>0</span>
+                    <span>%</span>
+                  </div>
+                </div>
+                <button class="settings__switch included" id="lights-power">
+                  <div class="settings__switch-item" id="lights-power-item"></div>
+                </button>
+              </li>
+              <li class="settings__screen" data-type="humidty">
+                <span class="settings__screen-title">Интенсивность</span>
+                <span class="settings__screen-sun-ico icon-humidity"></span>
+                <div class="slider" id="humidty-slider" data-type="humidty">
+                  <div class="slider__progress">
+                    <span>0</span>
+                    <span>%</span>
+                  </div>
+                </div>
+                <button class="settings__switch included" id="humidty-power">
+                  <div class="settings__switch-item" id="humidty-power-item"></div>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="mobile__bottom">
+      <img src="images/bottom.svg" alt="Bottom">
+    </footer>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
